@@ -18,41 +18,36 @@ const NavigationSidebar = ({
   children: React.ReactNode;
 }>) => {
   const pathname = usePathname();
-  console.log("Current pathname:", pathname);
   return (
     <SidebarProvider>
       <div className="flex min-h-screen">
-        <Sidebar className="px-5 py-6">
+        <Sidebar className="px-5 py-6" collapsible="icon">
           {/* color */}
           <SidebarContent className="bg-white">
-            <aside>
-              <Target size={50} className="mb-6" />
-              <nav aria-label="Sidebar navigation">
-                <ul className="flex flex-col gap-4">
-                  {SIDEBAR_NAV.map((navItem) => (
-                    // color
-                    <li
-                      key={navItem.label}
-                      className={`p-3 rounded-md ${
-                        pathname === navItem.href
-                          ? "bg-gray-100 text-black"
-                          : "text-gray-500"
-                      }`}
-                    >
-                      <Link
-                        href={navItem.href}
-                        className="flex gap-2 items-center font-bold text-sm"
-                      >
-                        {navItem.icon && (
-                          <navItem.icon size={20} strokeWidth={2.4} />
-                        )}
-                        {navItem.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </nav>
-            </aside>
+            <Target size={50} className="mb-6" />
+            <ul className="flex flex-col gap-4">
+              {SIDEBAR_NAV.map((navItem) => (
+                // color
+                <li
+                  key={navItem.label}
+                  className={`p-3 rounded-md ${
+                    pathname === navItem.href
+                      ? "bg-gray-100 text-black"
+                      : "text-gray-500"
+                  }`}
+                >
+                  <Link
+                    href={navItem.href}
+                    className="flex gap-2 items-center font-bold text-sm"
+                  >
+                    {navItem.icon && (
+                      <navItem.icon size={20} strokeWidth={2.4} />
+                    )}
+                    {navItem.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </SidebarContent>
           <SidebarFooter>Footer Content</SidebarFooter>
         </Sidebar>
