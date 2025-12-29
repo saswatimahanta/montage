@@ -17,7 +17,7 @@ const ElegantSummer = () => {
                     width={271}
                     height={0}
                     sizes="271px"
-                    className="h-auto w-full rounded-md object-cover"
+                    className="h-auto w-full rounded-md object-cover shadow-md"
                   />
                 </div>
               ))}
