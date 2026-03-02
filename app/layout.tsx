@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
 import NavigationSidebar from "@/components/layout/navigation-sidebar";
+import Searchbar from "@/components/ui/searchbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,7 +30,15 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <NavigationSidebar>{children}</NavigationSidebar>
+        <div className="flex">
+          <div>
+            <NavigationSidebar />
+          </div>
+          <div className="flex-1">
+            <Searchbar className="mt-4 mx-8" />
+            <div className="px-8  py-4">{children}</div>
+          </div>
+        </div>
       </body>
     </html>
   );
