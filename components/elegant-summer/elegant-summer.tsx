@@ -8,18 +8,9 @@ import { Button } from "../ui/button";
 import { ArrowUpRight, ShoppingCart } from "lucide-react";
 import Link from "next/link";
 
-const breakpointColumnsObj = {
-  default: 5,
-  1536: 5,
-  1280: 4,
-  1024: 3,
-  768: 2,
-  640: 1,
-};
-
-const ElegantSummer = () => {
+const ElegantSummer = ({ className = "", breakpointColumnsObj }) => {
   return (
-    <div className="">
+    <div className={className}>
       <Masonry
         breakpointCols={breakpointColumnsObj}
         className="flex w-auto -ml-4"
