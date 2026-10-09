@@ -30,12 +30,14 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="flex">
+        <div className="flex relative">
           <div>
             <NavigationSidebar />
           </div>
           <div className="flex-1">
-            <Searchbar className="mt-4 mx-8" />
+            <div className="py-4 px-8 sticky z-30 top-0 bg-white">
+              <Searchbar className="" />
+            </div>
             <div className="px-8  py-4">{children}</div>
           </div>
         </div>
