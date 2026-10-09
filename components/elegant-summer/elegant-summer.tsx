@@ -8,7 +8,20 @@ import { Button } from "../ui/button";
 import { ArrowUpRight, ShoppingCart } from "lucide-react";
 import Link from "next/link";
 
-const ElegantSummer = ({ className = "", breakpointColumnsObj }) => {
+interface Props {
+  data: typeof data;
+  className?: string;
+  breakpointColumnsObj: {
+    default: number;
+    [key: number]: number;
+  };
+}
+
+const ElegantSummer = ({
+  data = [],
+  className = "",
+  breakpointColumnsObj,
+}: Props) => {
   return (
     <div className={className}>
       <Masonry
@@ -52,6 +65,12 @@ const ElegantSummer = ({ className = "", breakpointColumnsObj }) => {
                 </Button>
               </Link>
             </div>
+
+            <p className="mt-1.5 text-sm text-gray-700 font-medium">
+              {item.title.length > 25
+                ? item.title.slice(0, 25) + "…"
+                : item.title}
+            </p>
           </div>
         ))}
       </Masonry>

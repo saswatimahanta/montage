@@ -19,6 +19,7 @@ interface Props {
 const DetailsPage = async ({ params }: Props) => {
   const { id } = await params;
   const product = data.find((item) => item.slug === id);
+  const filteredData = data.filter((item) => item.slug !== id);
 
   if (!product) {
     return <div>Product not found</div>;
@@ -28,6 +29,7 @@ const DetailsPage = async ({ params }: Props) => {
     <>
       <Details product={product} />
       <ElegantSummer
+        data={filteredData}
         breakpointColumnsObj={breakpointColumnsObj}
         className="pl-24 mt-16"
       />

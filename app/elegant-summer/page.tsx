@@ -1,4 +1,5 @@
 import ElegantSummer from "@/components/elegant-summer/elegant-summer";
+import { data } from "@/app/constants/elegant-summer-images";
 
 const breakpointColumnsObj = {
   default: 6,
@@ -8,9 +9,10 @@ const breakpointColumnsObj = {
   768: 2,
   640: 1,
 };
-
 const ElegantSummerPage = () => {
-  return <ElegantSummer breakpointColumnsObj={breakpointColumnsObj} />;
+  return (
+    <ElegantSummer data={data} breakpointColumnsObj={breakpointColumnsObj} />
+  );
 };
 
 export default ElegantSummerPage;
